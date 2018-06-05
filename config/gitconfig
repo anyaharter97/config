@@ -1,0 +1,8 @@
+[alias]
+    branch-info = "!sh -c ' \
+git branch --list --no-color | sed -e \"s/*/ /\" | \
+while read branch; do \
+    fmt=\"%Cred$branch:%Cblue %s %Cgreen%h%Creset (%ar)\"; \
+    git --no-pager log -1 --format=format:\"$fmt\" $branch -- ; echo;\
+done'"
+    bi = "!git branch-info"
