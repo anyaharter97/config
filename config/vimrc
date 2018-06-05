@@ -1,0 +1,79 @@
+" Cole Robinson's .vimrc config file
+
+syntax enable
+colorscheme monokai
+
+set nocompatible    " Use Vim defaults (much better!)
+
+set viminfo='20,\"10000
+set viminfo+=n~/.vim/.viminfo  " read/write a .viminfo file, don't store more
+                                " than 10000 lines of registers
+set directory=.,~/.vim/swap     " location of swap files
+set backup          " keep a backup file
+set backupdir=~/.vim/backup,.   " location of backup saves
+set history=500     " keep 500 lines of command line history
+set tabpagemax=60   " max number of simultaneous tabs to open via cli
+
+"set number
+set title titlestring=%F
+
+"set showtabline=2   " Always show tab line
+set backspace=2     " allow backspacing over everything in insert mode
+set tabstop=4       " uses 4 space tabs as opposed to the default 8
+set softtabstop=4   " treats spaces like tabs, backspacing 4 at a time
+set expandtab       " expands tabs to be read as spaces, not tab char
+set shiftwidth=4    " uses 4 space indent as opposed to the default 8
+set list            " makes tabs and trailing whitespace visible
+set listchars=tab:>. " sets visible tab character to >, no trailing ws char
+
+set smartcase       " does case insensitive search if all lowercase
+set ignorecase      " needed for smartcase
+set showmatch       " briefly jumps to a parenth or bracket match
+set incsearch       " shows results as you type a search
+
+set ruler           " show the cursor position all the time
+set nosmartindent   " Don't enforce text wrapping
+                    " XXX: used to say 'Fixes == for python indentation'
+
+set autoindent      " newline is indented at same level as previous line
+set formatoptions+=t  " Prevents autoindent with word wrapping
+
+set wildmode=longest:full
+set wildmenu        " Have autocompletion work like bash
+
+set tags=/usr/include/.tags,.tags,tags;  " Location of ctags data
+set nocscopetag " Don't have cscope provide ctags features
+
+" Make trailing whitespace bright red
+highlight RedundantSpaces ctermbg=red guibg=red
+autocmd BufWinEnter * match RedundantSpaces /\s\+$\| \+\ze\t/
+
+" filetype configuration
+"
+filetype on
+filetype plugin on
+filetype indent on
+set omnifunc=syntaxcomplete#Complete
+
+" Turns off tab expanding for makefiles, tab preservation is necessary
+autocmd FileType make set noexpandtab
+autocmd FileType automake set noexpandtab
+" Always put cursor at first line of the git commit message
+autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
+
+
+"
+" Custom mappings
+"
+
+" Unset ctrl+v, so I can use it to paste
+noremap <C-v> <NOP>
+
+"ctrl+n for new tab
+nnoremap <C-N> :tabedit<cr>
+
+" map ctrl+s to 'save'
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
+
