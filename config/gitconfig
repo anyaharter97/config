@@ -9,4 +9,4 @@ done'"
 
 [core]
     excludesfile = ~/bin/config/gitignore
-    
+
