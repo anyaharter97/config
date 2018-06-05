@@ -10,3 +10,18 @@ done'"
 [core]
     excludesfile = ~/bin/config/gitignore
 
+[sendemail]
+    chainreplyto = false
+    confirm = auto
+    from = "Anya Harter <aharter@redhat.com>"
+    smtpserver = smtp.corp.redhat.com
+[user]
+    name = Anya Harter
+    email = aharter@redhat.com
+
+[format]
+    numbered = auto
+    thread = shallow
+    signoff = true
+
+
