@@ -71,7 +71,7 @@ endfunction
 
 
 let s:white       = { "gui": "#E8E8E3", "cterm": "252" }
-let s:black       = { "gui": "#272822", "cterm": "235" }
+let s:black       = { "gui": "#272822", "cterm": "234" }
 let s:lightblack  = { "gui": "#2D2E27", "cterm": "235" }
 let s:lightblack2 = { "gui": "#383a3e", "cterm": "236" }
 let s:darkblack   = { "gui": "#211F1C", "cterm": "233" }
@@ -83,7 +83,7 @@ let s:warmgrey    = { "gui": "#75715E", "cterm": "59" }
 let s:pink        = { "gui": "#F92772", "cterm": "197" }
 let s:green       = { "gui": "#A6E22D", "cterm": "155" }
 let s:aqua        = { "gui": "#66d9ef", "cterm": "87" }
-let s:yellow      = { "gui": "#E6DB74", "cterm": "228" }
+let s:yellow      = { "gui": "#E6DB74", "cterm": "229" }
 let s:orange      = { "gui": "#FD9720", "cterm": "208" }
 let s:purple      = { "gui": "#ae81ff", "cterm": "141" }
 let s:red         = { "gui": "#e73c50", "cterm": "196" }
