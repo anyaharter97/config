@@ -7,6 +7,9 @@ while read branch; do \
 done'"
     bi = "!git branch-info"
 
+    mylog = "log --author aharter \
+        --pretty=format:'- %s' master --reverse"
+
 [core]
     excludesfile = ~/bin/config/gitignore
 
