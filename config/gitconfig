@@ -1,14 +1,12 @@
 [alias]
-    branch-info = "!sh -c ' \
-git branch --list --no-color | sed -e \"s/*/ /\" | \
-while read branch; do \
-    fmt=\"%Cred$branch:%Cblue %s %Cgreen%h%Creset (%ar)\"; \
-    git --no-pager log -1 --format=format:\"$fmt\" $branch -- ; echo;\
-done'"
-    bi = "!git branch-info"
+    branchinfo = "for-each-ref refs/heads/ --format='%(if)%(HEAD)%(then)%(color:reverse yellow)%(else)%(color:yellow)%(end)%(refname:short):%(color:reset) %(contents:subject) %(color:green)%(objectname:short) %(color:blue)(%(committerdate:relative))%(color:reset)'"
+    bi = "!git branchinfo"
 
-    mylog = "log --author aharter \
-        --pretty=format:'- %s' master --reverse"
+    mylog = "log --author aharter --pretty=format:'%Cgreen%h%Creset %<(55,trunc)%s %Cblue(%cr)'"
+    ml = "!git mylog"
+
+    listlog = "log --pretty=format:'%Cgreen%h%Creset %<(45,trunc)%s %Cblue%<(8,trunc)(%cr) %C(bold yellow)%<(15,trunc)%an'"
+    ll = "!git listlog"
 
 [core]
     excludesfile = ~/bin/config/gitignore
@@ -27,3 +25,21 @@ done'"
     thread = shallow
     signoff = true
 
+[color]
+    ui = true
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red
+    new = green
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = red
