@@ -30,10 +30,22 @@ fi
 force_color_prompt=yes
 color_prompt=yes
 if [ "$color_prompt" = yes ]; then
- PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]$(__git_ps1 " (%s)")\[\033[00m\]\n\$ '
+ PS1='${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u \[\e[00m\]\[\e[01;34m\]\w\[\e[01;31m\]$(__git_ps1 " (%s)")\[\e[00m\]\n\$ '
  GIT_PS1_SHOWDIRTYSTATE=1
 else
- PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(__git_ps1 " (%s)")\n\$ '
+ PS1='${debian_chroot:+($debian_chroot)}\u \w$(__git_ps1 " (%s)")\n\$ '
 fi
 unset color_prompt force_color_prompt
 
+# Understanding the PS1 line:
+# [\e[00m\] => removes all formatting and colors
+# [01;32m => bright [32m
+# [32m => foreground color 32
+# 30 => black
+# 31 => red
+# 32 => green
+# 33 => yellow
+# 34 => blue
+# 35 => magenta
+# 36 => cyan
+# 37 => white
