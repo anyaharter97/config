@@ -8,6 +8,8 @@
     listlog = "log --pretty=format:'%Cgreen%h%Creset %<(45,trunc)%s %Cblue%<(8,trunc)(%cr) %C(bold yellow)%<(15,trunc)%an'"
     ll = "!git listlog"
 
+    commits = "commit --signoff"
+
 [core]
     excludesfile = ~/bin/config/gitignore
 
