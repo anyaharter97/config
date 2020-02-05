@@ -49,3 +49,24 @@ unset color_prompt force_color_prompt
 # 35 => magenta
 # 36 => cyan
 # 37 => white
+
+
+# declares an array with the emojis we want to support
+EMOJIS=(🐳 🐋 🐬 🐟 🐠 🐡 🦈 🐙 🐚 🦀 🦐 🦑 🐒 🦍 🐕 🐺 🦊 🐈 🦁 🐅 🐯 🐆 🐎 🦓 🦌 🐄 🐖 🐑 🐪 🦒 🐘 🐀 🐇 🦔 🦇 🐻 🐨 🐼 🐣 🐧 🐦 🦆 🦉 🐊 🐢 🦎 🐍 🐉 🦕 🦖 🐌 🦋 🐛 🐞 🌹 🌵 🌴 🌲 🌳 🌾 🍀 🍁 🍇 🍈 🍉 🍊 🍋 🍌 🍍 🍎 🍐 🍑 🍒 🍓 🥝 🍅 🥥 🥑 🍆 🥔 🥕 🌽 🍄 🥜 🌰 🍞 🥐 🥨 🥞 🧀 🥓 🍔 🌭 🍕 🌮 🥗 🥣 🍿 🥫 🍱 🍜 🍝 🍛 🍤 🥟 ☕ 🍵 🍾 🍷 🍸 🍹 🍺 🥃 🍦 🍩 🍪 🎂 🍰 🥧 🍫 🍬 🍭 🍮 🍯 🌎 🌋 🌄 ⛵ 🚗 🚂 🚲 🚁 🚀 🛰 🛸 🌛 🌞 ⭐ 🌌 ⚡ 🌈 ⛄ 🔥 🌊 🎆 🎈 🎉 🎹 🎷 🎸 🎻 🎺 🥁 ⚽ ⚾ 🏀 🏐 🏈 🎾 🎳 🏒 🏓 ⛳ 🎱 🎲 🎯 💗 🧡 💛 💚 💙 💜 🖤)
+
+# function that selects and return a random element from the EMOJIS set
+RANDOM_EMOJI() {
+    if [ $EMOJIS ]
+    then
+        SELECTED_EMOJI=${EMOJIS[$RANDOM % ${#EMOJIS[@]}]};
+        echo "$SELECTED_EMOJI";
+    else
+        echo "🐳";
+    fi
+}
+
+if [ -z "${CONTAINER_PS1}" ]; then
+    :
+else
+    PS1="${CONTAINER_PS1}"
+fi
