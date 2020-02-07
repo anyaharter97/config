@@ -30,16 +30,17 @@ fi
 force_color_prompt=yes
 color_prompt=yes
 if [ "$color_prompt" = yes ]; then
- PS1='${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u \[\e[00m\]\[\e[01;34m\]\w\[\e[01;31m\]$(__git_ps1 " (%s)")\[\e[00m\]\n\$ '
+ PS1='${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u \[\e[m\]\[\e[01;34m\]\w\[\e[01;31m\]$(__git_ps1 " (%s)")\[\e[m\]\n\$ '
  GIT_PS1_SHOWDIRTYSTATE=1
 else
  PS1='${debian_chroot:+($debian_chroot)}\u \w$(__git_ps1 " (%s)")\n\$ '
 fi
 unset color_prompt force_color_prompt
 
+#https://askubuntu.com/questions/528928/how-to-do-underline-bold-italic-strikethrough-color-background-and-size-i
 # Understanding the PS1 line:
-# [\e[00m\] => removes all formatting and colors
-# [01;32m => bright [32m
+# [\e[m\] => removes all formatting and colors
+# [1;32m => bright [32m
 # [32m => foreground color 32
 # 30 => black
 # 31 => red
