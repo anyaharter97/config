@@ -31,10 +31,10 @@ force_color_prompt=yes
 color_prompt=yes
 if [ "$color_prompt" = yes ]; then
     # if on windows you may need to put '$' before the \n
-    PS1='${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u \[\e[m\]\[\e[01;34m\]\w\[\e[01;31m\]$(__git_ps1 " (%s)")\[\e[m\]\n\$ '
+    PS1='\[\e[01;32m\]\u \[\e[m\]\[\e[01;34m\]\w\[\e[01;31m\]$(__git_ps1 " (%s)")\[\e[m\]\n\$ '
     GIT_PS1_SHOWDIRTYSTATE=1
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u \w$(__git_ps1 " (%s)")\n\$ '
+    PS1='\u \w$(__git_ps1 " (%s)")\n\$ '
 fi
 unset color_prompt force_color_prompt
 
