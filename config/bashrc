@@ -1,3 +1,4 @@
+
 # .bashrc
 
 # Source global definitions
@@ -11,11 +12,6 @@ fi
 if [ -e /usr/share/git-core/contrib/completion/git-prompt.sh ] ; then
     source /usr/share/git-core/contrib/completion/git-prompt.sh
 fi
-
-#if type -t __git_ps1 | grep -q function ; then
-#    export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-#    export GIT_PS1_SHOWDIRTYSTATE=1
-#fi
 
 # User specific aliases and functions
 
@@ -31,8 +27,10 @@ force_color_prompt=yes
 color_prompt=yes
 if [ "$color_prompt" = yes ]; then
     # if on windows you may need to put '$' before the \n
+    # PS1='\[\e[01;32m\]\u \[\e[m\]\[\e[01;34m\]\w\[\e[01;31m\]$(__git_ps1 " (%s)")\[\e[m\]'$'\n\$ '
     PS1='\[\e[01;32m\]\u \[\e[m\]\[\e[01;34m\]\w\[\e[01;31m\]$(__git_ps1 " (%s)")\[\e[m\]\n\$ '
     GIT_PS1_SHOWDIRTYSTATE=1
+    GIT_PS1_SHOWUNTRACKEDFILES=1
 else
     PS1='\u \w$(__git_ps1 " (%s)")\n\$ '
 fi
@@ -72,3 +70,8 @@ if [ -z "${CONTAINER_PS1}" ]; then
 else
     PS1="${CONTAINER_PS1}"
 fi
+
+
+# aliases
+alias ls="ls --color=auto"
+alias ll="ls -lh --color=auto"
