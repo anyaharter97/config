@@ -2,6 +2,9 @@
     branchinfo = "for-each-ref refs/heads/ --format='%(if)%(HEAD)%(then)%(color:reverse yellow)%(else)%(color:yellow)%(end)%(refname:short):%(color:reset) %(contents:subject) %(color:green)%(objectname:short) %(color:blue)(%(committerdate:relative))%(color:reset)'"
     bi = "!git branchinfo"
 
+    remotebranchinfo = "for-each-ref refs/remotes/ --sort=committerdate --format='%(if)%(HEAD)%(then)%(color:reverse yellow)%(else)%(color:yellow)%(end)%(refname:short):%(color:reset) %(contents:subject) %(color:green)%(objectname:short) %(color:blue)(%(committerdate:relative))%(color:reset)'"
+	rbi = "!git remotebranchinfo"
+
     mylog = "log --author aharter --pretty=format:'%Cgreen%h%Creset %<(55,trunc)%s %Cblue(%cr)'"
     ml = "!git mylog"
 
