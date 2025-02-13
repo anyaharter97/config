@@ -75,3 +75,8 @@ fi
 # aliases
 alias ls="ls --color=auto"
 alias ll="ls -lh --color=auto"
+
+# Define any environment variables from the SECRETS directory
+for f in $(ls ~/.secrets/); do
+    export ${f}=$(cat ~/.secrets/${f})
+done
