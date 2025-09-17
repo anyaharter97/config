@@ -11,6 +11,9 @@
     listlog = "log --pretty=format:'%Cgreen%h%Creset %<(45,trunc)%s %Cblue%<(8,trunc)(%cr) %C(bold yellow)%<(12,trunc)%an'"
     ll = "!git listlog"
 
+	taginfo = "git tag -l --sort=-creatordate --format='%(refname:short)  %(creatordate:short)'"
+	ti = "!git taginfo"
+
     commits = "commit --signoff"
 
 [core]
